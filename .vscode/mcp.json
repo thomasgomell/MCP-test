@@ -1,0 +1,14 @@
+{"servers":{
+  
+  "neo4j-sbrain-memory": {
+    "command": "uvx",
+    "args": [ "mcp-neo4j-memory@0.2.0" ],
+    "env": {
+      "NEO4J_URL": "bolt://srv-neo4j-01.migraven.com:7687",
+      "NEO4J_USERNAME": "neo4j",
+      "NEO4J_PASSWORD": "",
+	"NEO4J_DATABASE": "nexus.brain"
+    }
+  }
+}
+}

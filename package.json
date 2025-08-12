@@ -1,0 +1,34 @@
+{
+  "name": "migraven-nexus-mcp",
+  "displayName": "migRaven.Nexus (MCP + GraphRAG)",
+  "version": "0.1.0",
+  "engines": { "vscode": "^1.92.0" },
+  "activationEvents": [
+    "onCommand:migraven.ask",
+    "onCommand:migraven.saveInsight",
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      { "command": "migraven.ask", "title": "Nexus: Frage stellen (GraphRAG)" },
+      { "command": "migraven.saveInsight", "title": "Nexus: Ergebnis ins Brain speichern" }
+    ]
+  },
+  "main": "./dist/extension.js",
+  "type": "module",
+  "dependencies": {
+    "@vscode/prompt-tsx": "^0.2.7-alpha"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "ts-node": "^10.9.2",
+    "esbuild": "^0.23.0",
+    "@types/node": "^20.12.12",
+    "vsce": "^2.15.0"
+  },
+  "scripts": {
+    "compile": "esbuild src/extension.ts --bundle --platform=node --outfile=dist/extension.js",
+    "watch": "esbuild src/extension.ts --bundle --platform=node --outfile=dist/extension.js --watch",
+    "vscode:prepublish": "npm run compile"
+  }
+}

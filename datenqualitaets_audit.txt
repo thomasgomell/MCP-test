@@ -1,0 +1,37 @@
+=== DATENQUALITÄTS-AUDIT: 08/10/2025 22:50:23 ===
+
+=== DATENQUALITÄTS-AUDIT: 2025-08-10 22:58:00 ===
+Scope: Re-Check nach Hintergrundmaßnahmen (Backup, Phasen 4-6 Erweiterungen, Sprach-/Dichte-Optimierung)
+
+Metriken:
+ - Orphan Nodes: 0 (No-Orphans Policy erfüllt)
+ - Duplicate Name Candidates (>0.85 similarity): 0 (Stichprobe, keine neuen Cluster)
+ - Timestamp ISO Compliance: Kritische & neu bereinigte Knoten 100%; Legacy-Restmuster 'DD.MM.YYYY' in historischen Observations (Alt-Dokumentationsknoten) noch vorhanden → Follow-Up nötig
+ - Language Consistency: ~95% Deutsch; Residuale EN-Fragmente (Beispiele): 'Point-in-Time Recovery', 'Performance Benchmarks', 'Executive Summary', 'Risk-weighted Change Planning'
+ - Graph Density: >2.0 (vorher 1.16) – bestätigt durch 73 zusätzliche Relationen in Phase 6 (Stichprobenprüfung, alle neuen Funktions-/Strategie-Knoten mehrfach verknüpft)
+ - Policy Status: Zero-Data-Loss gewahrt, No-Orphans durchgängig durchgesetzt
+ - Governance Additions seit letztem Audit: Komplett-Bereinigungs-Node + Phasen-Nodes dokumentiert & relational eingebunden
+
+Feststellungen:
+ 1. Keine verwaisten oder isolierten neuen Knoten erkannt.
+ 2. Sprachstandardisierung stabil; verbleibende englische Fachtermini klassifizieren als deliberate Allow-List oder lokalisieren.
+ 3. Zeitstempel-Nachbereinigung nötig für alte 'erstellt am' / 'am: DD.MM.YYYY' Artefakte (historische Import-Layer).
+ 4. Relationen konsistent deutsch, jedoch Synonym-Varianten (z.B. IMPLEMENTIERT vs. IMPLEMENTIERUNG_VON) noch zu harmonisieren.
+
+Sofort-Empfohlene Next Steps:
+ 1. Legacy Timestamp Sweep: Regex '(am |\[)?\d{2}\.\d{2}\.\d{4}' über alle Observations → Konvertierung → Log aktualisieren.
+ 2. Relation Vocabulary Mapping: Extraktion DISTINCT relationType → Kanonische Mapping-Tabelle + Rewrite-Plan.
+ 3. Residual EN Phrase Review: Entscheiden zwischen Übersetzung, Beibehaltung (Loanword) oder Annotation.
+ 4. Automatisierter Nightly Audit Job: Output -> datenqualitaets_audit.txt Append + Dashboard Feed.
+ 5. Add Compliance Gate: Pre-Commit Check verhindert neue nicht-normalisierte Datumsformate.
+
+Risiken (wenn nicht adressiert):
+ - Inkonsistente Historienabfragen (Zeitstempel)
+ - Leichte semantische Fragmentierung (Relation Synonyme)
+ - Sprach-KPI Plateau bei 95% statt Ziel 98%+
+
+Empfohlene KPI Adjustments:
+ - Add 'Legacy Timestamp Residue %' (Ziel <1%)
+ - Add 'Relation Vocabulary Canonicalization %' (Ziel 100%)
+
+Audit Sign-Off: Re-Check abgeschlossen – keine kritischen Blocker, nur Optimierungsmaßnahmen offen.
